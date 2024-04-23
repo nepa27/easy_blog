@@ -45,7 +45,10 @@ Django version 3.2.16, using settings 'yatube_api.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
-Откройте браузер и перейдите по адресу **http://127.0.0.1:8000/** 
+Откройте браузер и перейдите по адресу **http://127.0.0.1:8000/redoc/**.
+Здесь представлена документация для API Yatube. В документации описано, как должен работать ваш API.
+Документация представлена в формате Redoc.
+
 
 При возникновении ошибки
 ```
@@ -57,23 +60,91 @@ python: can't open file 'yatube_api/manage.py'[Errno 2] No such file or director
 * Получение и создание постов: 
   ```
   http://127.0.0.1:8000/api/v1/posts/
+  
+  GET Request
+  {
+    "count": 123,
+    "next": "http://api.example.org/accounts/?offset=400&limit=100",
+    "previous": "http://api.example.org/accounts/?offset=200&limit=100",
+    "results": [
+      {
+        "id": 0,
+        "author": "string",
+        "text": "string",
+        "pub_date": "2021-10-14T20:41:29.648Z",
+        "image": "string",
+        "group": 0
+      }
+    ]
+  }
+  
+  POST Request
+  Request:
+  {
+    "text": "string",
+    "image": "string",
+    "group": 0
+  }
+  Response:
+  {
+    "id": 0,
+    "author": "string",
+    "text": "string",
+    "pub_date": "2019-08-24T14:15:22Z",
+    "image": "string",
+    "group": 0
+  }
   ```
 * Получение и создание нового комментария: 
   ```
   http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
-  ```
-* Получение списка доступных групп: 
-  ```
-  http://127.0.0.1:8000/api/v1/groups/
+  
+  GET Request
+  Response:
+  [
+    {
+      "id": 0,
+      "author": "string",
+      "text": "string",
+      "created": "2019-08-24T14:15:22Z",
+      "post": 0
+    }
+  ]
+  
+  POST Request
+  Request:
+  {
+    "text": "string"
+  }
+  Response:
+  {
+    "id": 0,
+    "author": "string",
+    "text": "string",
+    "created": "2019-08-24T14:15:22Z",
+    "post": 0
+  }
   ```
 * Получение JWT-токена:
   ```
   http://127.0.0.1:8000/api/v1/jwt/create/
+  
+  POST Request
+  Request:
+  {
+    "username": "string",
+    "password": "string"
+  }
+  Response:
+  {
+    "refresh": "string",
+    "access": "string"
+  }
+
   ```
-* Обновление JWT-токена:
-  ```
-  http://127.0.0.1:8000/api/v1/jwt/refresh/
-  ```
-* Проверка JWT-токена: 
-  ```
-  http://127.0.0.1:8000/api/v1/jwt/verify/
+  
+### Инструменты и стек
+#python #Django #DRF #Redoc #JWT
+
+### Автор
+Непочатых Александр
