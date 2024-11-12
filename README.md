@@ -1,4 +1,4 @@
-# YaTubeAPI
+# EasyBlog
 
 Обучающий проект Yatube является прототипом сети для публикации постов,
 подписки на интересных авторов и комментирования их 
@@ -11,7 +11,7 @@
 
 Клонируйте репозиторий и перейдите в папку с проектом
 ```
-git clone git@github.com:nepa27/api_final_yatube.git
+git clone git@github.com:nepa27/easy_blog.git
 cd yatube_api
 ```
 Создайте **виртуальное окружение**
